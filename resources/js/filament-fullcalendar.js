@@ -75,9 +75,9 @@ export default function fullcalendar({
                     if (!selectable) return;
                     this.$wire.onDateSelect(dateStr, null, allDay, view)
                 },
-                select: ({ startStr, endStr, allDay, view }) => {
+                select: ({ startStr, endStr, allDay, view, resource }) => {
                     if (!selectable) return;
-                    this.$wire.onDateSelect(startStr, endStr, allDay, view)
+                    this.$wire.onDateSelect(startStr, endStr, allDay, view, resource)
                 },
             })
 
