@@ -57,7 +57,7 @@ export default function fullcalendar({
 
                     this.$wire.onEventClick(event)
                 },
-                eventDrop: async ({ event, oldEvent, relatedEvents, delta, revert, oldResource, newResource }) => {
+                eventDrop: async ({ event, oldEvent, relatedEvents, delta, oldResource, newResource, revert }) => {
                     const shouldRevert = await this.$wire.onEventDrop(event, oldEvent, relatedEvents, delta, oldResource, newResource)
 
                     if (typeof shouldRevert === 'boolean' && shouldRevert) {
@@ -71,9 +71,9 @@ export default function fullcalendar({
                         revert()
                     }
                 },
-                dateClick: ({ dateStr, allDay, view }) => {
+                dateClick: ({ dateStr, allDay, view, resource }) => {
                     if (!selectable) return;
-                    this.$wire.onDateSelect(dateStr, null, allDay, view)
+                    this.$wire.onDateSelect(dateStr, null, allDay, view, resource)
                 },
                 select: ({ startStr, endStr, allDay, view, resource }) => {
                     if (!selectable) return;
